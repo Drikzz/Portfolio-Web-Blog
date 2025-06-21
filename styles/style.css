@@ -99,6 +99,12 @@
   background-color: var(--text);
 }
 
+html, body {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
 body {
   background-color: var(--bg);  
   font-family: var(--font-primary);
@@ -185,18 +191,25 @@ body {
 }
 
 .whole-container {
+  width: 100vw;
   z-index: 100;
 }
 
-.intro-section, .skills-section {
+.intro-section, .skills-section, .projects-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 100%;
   min-height: 100vh;
 
   padding: 2rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.scroll-section {
+  height: 100vh;
 }
 
 .intro-subtitle {
@@ -229,13 +242,14 @@ body {
 
 .intro-description {
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px); /* apply blur */
-  -webkit-backdrop-filter: blur(2px); /* for Safari */
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
   color: var(--text);
+  border-radius: 8px;
+  padding: 0.5rem;
   font-size: var(--fs-sm);
   font-weight: 400;
   margin-bottom: 1rem;
-  padding: 0.5rem;
   text-align: center;
 }
 
@@ -301,12 +315,11 @@ body {
   color: var(--highlight);
 }
 
-.skills-section {
+.skills-section, .projects-section {
   color: var(--text);
-  
-  display: inline-block;
-  /* min-height: fit-content; */
-  width: 100vw;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .section-title {
@@ -337,18 +350,20 @@ body {
 
 .skills-grid li {
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px); /* apply blur */
-  -webkit-backdrop-filter: blur(2px); /* for Safari */
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px);  */
 
   width: fit-content;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   margin-bottom: 0.5rem;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease-out;
 }
 
 .skills-grid li:active {
   transform: scale(1.05);
+  color: var(--highlight);
+  background-color: var(--secondary);
 }
 
 /* xs */
