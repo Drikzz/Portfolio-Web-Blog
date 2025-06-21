@@ -194,7 +194,7 @@ body {
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 100vh;
+  min-height: 100vh;
 
   padding: 2rem;
 }
@@ -228,8 +228,10 @@ body {
 }
 
 .intro-description {
-  background-color: var(--secondary);
-  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px); /* apply blur */
+  -webkit-backdrop-filter: blur(2px); /* for Safari */
+  color: var(--text);
   font-size: var(--fs-sm);
   font-weight: 400;
   margin-bottom: 1rem;
@@ -300,15 +302,22 @@ body {
 }
 
 .skills-section {
-  background-color: var(--bg);
   color: var(--text);
-  height: 50vh;
+  
+  display: inline-block;
+  /* min-height: fit-content; */
+  width: 100vw;
+}
+
+.section-title {
+  font-size: var(--fs-2xl);
+  margin-bottom: 1.5rem;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
 }
 
 .skills-grid h3 {
@@ -317,19 +326,28 @@ body {
 }
 
 .skills-grid ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
+  gap: 0.5rem;
 }
 
 .skills-grid li {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px); /* apply blur */
+  -webkit-backdrop-filter: blur(2px); /* for Safari */
+
+  width: fit-content;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   margin-bottom: 0.5rem;
   transition: transform 0.2s ease;
 }
 
-.skills-grid li:hover {
+.skills-grid li:active {
   transform: scale(1.05);
 }
 
