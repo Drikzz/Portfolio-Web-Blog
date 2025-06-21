@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aldrikz Suarez</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://kit.fontawesome.com/6b6a8b19b9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div id="vanta-bg"></div>
+
+  <i class="fa-solid fa-bars" onclick="openMobileNav()"></i>
+  
+  <nav class="mobile-nav">
+
+    <div class="nav-blur"></div>
+
+    <nav class="nav-bar">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </nav>
+
+  </nav>
+    
+  <div class="whole-container">
+
+    <section class="intro-section" id="home">
+      
+      <h2 class="intro-subtitle">
+        Hello, I'm
+      </h2>
+
+      <img class="profile" src="profile.jpg" alt="image of Aldrikz N. Suarez">
+
+      <div class="intro-title">
+        ALDRIKZ SUAREZ
+      </div>
+
+      <h3 class="intro-description">
+        I'm a 4th-year CS student at WMSU, focusing more on backend and algorithms than design. Still learning the design side, but always open to collab. I love music, hanging out, and most of all — eating. 🍽️🎧
+      </h3>
+  
+      <div class="buttons-container">
+        
+        <a class="cv-button btn" href="assets/suarez_cv.pdf" download="Aldrikz_Suarez_CV.pdf">
+          Download CV
+          <i class="fa-solid fa-file-arrow-down"></i>
+        </a>
+        
+          <div class="wrapper-buttons">
+        
+              <a class="social-button" href="https://www.linkedin.com/in/aldrikz-suarez-b982302aa">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              
+              <a class="social-button" href="https://github.com/Drikzz">
+                  <i class="fa-brands fa-square-github"></i>
+              </a>
+        
+              <a class="social-button" href="https://www.facebook.com/wagmotoiclick.28">
+                <i class="fa-brands fa-square-facebook"></i>
+              </a>
+              
+              <a class="social-button" href="https://www.instagram.com/akosidrikz/">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+
+          </div>
+
+      </div>
+
+    </section>
+
+    <section class="skill-section">
+      
+      <div class="skills-title">
+        
+      </div>
+    
+    </section>
+  </div>
+
+  <script src="scripts/script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+  VANTA.NET({
+    el: "#vanta-bg",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: true,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0xf5e0ea,
+    backgroundColor: 0x171618,
+    points: 9.00
+  })
+  </script>
+
+</body>
+</html>

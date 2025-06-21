@@ -1,0 +1,338 @@
+
+:root {
+
+  /* Fonts */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Merriweather', serif;
+
+  /* Colors */
+  --primary: #1a1818; /*	0x1A1818 vanta */
+  --secondary: #FFFFFF; /* 0xFFFFFF vanta */
+  --text: #f5f5f5; /* 	0xF5F5F5 vanta */
+  --highlight: #FF4444; /* 0xFF4444 vanta */
+  --bg: #222222; /* 	0x222222 vanta */
+ 
+  /* Font Sizes (fluid using clamp) */
+  --fs-xs: clamp(0.75rem, 0.6vw, 0.875rem);   /* 12px–14px */
+  --fs-sm: clamp(0.875rem, 0.7vw, 1rem);      /* 14px–16px */
+  --fs-base: clamp(1rem, 0.8vw, 1.125rem);    /* 16px–18px */
+  --fs-md: clamp(1.125rem, 1vw, 1.25rem);     /* 18px–20px */
+  --fs-lg: clamp(1.25rem, 1.2vw, 1.5rem);     /* 20px–24px */
+  --fs-xl: clamp(1.5rem, 1.5vw, 2rem);        /* 24px–32px */
+  --fs-2xl: clamp(2rem, 2vw, 2.5rem);         /* 32px–40px */
+  --fs-3xl: clamp(2.5rem, 3vw, 3rem);         /* 40px–48px */
+  
+  /* Button Sizes */
+  --btn-height-sm: 2rem;     /* 32px */
+  --btn-height-md: 2.5rem;   /* 40px */
+  --btn-height-lg: 3rem;     /* 48px */
+
+  /* Button Padding */
+  --btn-padding-sm: 0.25rem 0.75rem;  /* 4px 12px */
+  --btn-padding-md: 0.5rem 1rem;      /* 8px 16px */
+  --btn-padding-lg: 0.75rem 1.5rem;   /* 12px 24px */
+
+  /* Button Font Sizes */
+  --btn-font-sm: 0.875rem;   /* 14px */
+  --btn-font-md: 1rem;       /* 16px */
+  --btn-font-lg: 1.125rem;   /* 18px */
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('tff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('tff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf') format('tff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format('tff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat/Montserrat-BoldItalic.ttf') format('tff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../assets/fonts/Merriweather/Merriweather_24pt-Regular.ttf') format('tff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../assets/fonts/Merriweather/Merriweather_24pt-Bold.ttf') format('tff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+::selection {
+  color: var(--primary);
+  background-color: var(--text);
+}
+
+body {
+  background-color: var(--bg);  
+  font-family: var(--font-primary);
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* send it behind everything */
+  pointer-events: none;  /* let clicks go through */
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.fa-bars {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 2rem 2rem 0 0;
+  color: var(--text);
+  z-index: 100;
+}
+
+.fa-bars.active {
+  color: var(--primary);
+}
+
+.mobile-nav {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none; 
+}
+
+.nav-blur, .nav-bar {
+  height: 100%;
+  width: 50%;
+}
+
+.nav-bar {
+  display: flex;
+  background-color: var(--secondary);
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in-out;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5rem 0;
+  gap: var(--fs-3xl);
+}
+
+.nav-blur {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px); /* apply blur */
+  -webkit-backdrop-filter: blur(2px); /* for Safari */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.mobile-nav {
+  display: flex !important;
+  /* scroll-behavior: unset; */
+}
+
+.mobile-nav.active .nav-blur{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.mobile-nav.active .nav-bar{
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.whole-container {
+  z-index: 100;
+}
+
+.intro-section, .skill-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-height: 100vh;
+
+  padding: 2rem;
+}
+
+.intro-subtitle {
+  color: var(--text);
+  font-size: var(--fs-xl);
+  margin-bottom: 2rem;
+}
+
+.profile {
+  width: 15rem;
+  border-radius: 7.5rem;
+  border: 0.5rem solid var(--secondary);
+
+  margin-bottom: 1.5rem;
+}
+
+.intro-title {
+  max-width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  
+  font-size: var(--fs-3xl);
+  font-weight: bold;
+  color: var(--text);
+
+  margin-bottom: 1rem;
+}
+
+.intro-description {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.buttons-container {
+  width: 100%;
+}
+
+.fa-solid, .fa-brands {
+  font-size: var(--fs-lg);
+}
+
+.wrapper-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.wrapper-buttons, a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.cv-button {
+  background-color: var(--secondary);
+  border-radius: 2px;
+  height: var(--btn-height-lg);
+  max-width: 100%;
+  padding: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  /* margin-bottom: 1rem; */
+}
+
+.social-button {
+  width: var(--btn-height-lg);
+  height: var(--btn-height-lg);
+
+  color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn, .social-button {
+  transition: all 300ms;
+}
+
+.btn:active {
+  background-color: var(--highlight);
+  color: var(--text);
+  transform: scale(0.97);
+}
+
+.social-button:active {
+  color: var(--highlight);
+}
+
+.skill-section {
+  background-color: orange;
+}
+
+
+/* xs */
+@media (min-width: 475px) {
+  
+}
+
+/* sm */
+@media (min-width: 640px) {
+  
+}
+
+/* md */
+@media (min-width: 768px) {
+  .whole-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+  
+}
