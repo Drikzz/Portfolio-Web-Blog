@@ -366,6 +366,7 @@ body {
 
 /* md */
 @media (min-width: 768px) {
+
   .whole-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -388,7 +389,33 @@ body {
 
 /* lg */
 @media (min-width: 1024px) {
+
+  .fa-bars {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: none !important;
+  }
+
+  .btn:hover {
+    background-color: var(--highlight);
+    color: var(--text);
+    transform: scale(0.97);
+    cursor: pointer;
+  }
   
+  .social-button:hover {
+    color: var(--highlight);
+    cursor: pointer;
+  }
+  
+  .skills-grid li:hover {
+    transform: scale(1.05);
+    color: var(--highlight);
+    background-color: var(--secondary);
+    cursor: pointer;
+  }
 }
 
 /* xl */
