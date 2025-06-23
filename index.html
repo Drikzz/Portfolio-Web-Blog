@@ -9,10 +9,13 @@
 </head>
 
 <body>
-
+  
   <div id="vanta-bg"></div>
+  
+  <i id="sun-icon" class="fa-solid fa-sun toggle-btn" onclick="toggleTheme()"></i>
+  <i id="moon-icon" class="fa-solid fa-moon toggle-btn" onclick="toggleTheme()"></i>
 
-  <i class="fa-solid fa-bars" onclick="openMobileNav()"></i>
+  <i class="fa-solid fa-bars toggle-btn" onclick="openMobileNav()"></i>
   
   <nav class="mobile-nav">
 
@@ -24,11 +27,14 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <a href="#about">About</a>
+      <i id="m-sun-icon" class="fa-solid fa-sun toggle-btn" onclick="toggleTheme()"></i>
+      <i id="m-moon-icon" class="fa-solid fa-moon toggle-btn" onclick="toggleTheme()"></i>
+
     </nav>
 
   </nav>
     
-  <div class="whole-container">
+  <main class="whole-container">
 
     <section class="intro-section" id="home">
       
@@ -36,13 +42,13 @@
         Hello, I'm
       </h2>
 
-      <img class="profile" src="profile.jpg" alt="image of Aldrikz N. Suarez">
+      <img class="profile" src="assets/images/profile.jpg" alt="image of Aldrikz N. Suarez">
 
       <div class="intro-title">
         ALDRIKZ SUAREZ
       </div>
 
-      <h3 class="intro-description">
+      <h3 class="intro-description contrast-text">
         I'm a 4th-year CS student at WMSU, focusing more on backend and algorithms than design. Still learning the design side, but always open to collab. I love music, hanging out, and most of all — eating. 🍽️🎧
       </h3>
   
@@ -86,19 +92,19 @@
           <div>
             <h3 class="section-subtitle">Programming Languages</h3>
             <ul>
-              <li>C++</li>
-              <li>Python</li>
+              <li class="contrast-text">C++</li>
+              <li class="contrast-text">Python</li>
             </ul>
           </div>
   
           <div>
             <h3 class="section-subtitle">Frontend</h3>
             <ul>
-              <li>HTML5</li>
-              <li>CSS</li>
-              <li>Tailwind</li>
-              <li>JavaScript</li>
-              <li>Vue</li>
+              <li class="contrast-text">HTML5</li>
+              <li class="contrast-text">CSS</li>
+              <li class="contrast-text">Tailwind</li>
+              <li class="contrast-text">JavaScript</li>
+              <li class="contrast-text">Vue</li>
             </ul>
   
           </div>
@@ -106,19 +112,19 @@
           <div>
             <h3 class="section-subtitle">Backend</h3>
             <ul>
-              <li>PHP</li>
-              <li>Laravel</li>
-              <li>MySQL</li>
+              <li class="contrast-text">PHP</li>
+              <li class="contrast-text">Laravel</li>
+              <li class="contrast-text">MySQL</li>
             </ul>
           </div>
   
           <div>
             <h3 class="section-subtitle">Tools</h3>
             <ul>
-              <li>GitHub</li>
-              <li>XAMPP</li>
-              <li>Figma</li>
-              <li>Firebase</li>
+              <li class="contrast-text">GitHub</li>
+              <li class="contrast-text">XAMPP</li>
+              <li class="contrast-text">Figma</li>
+              <li class="contrast-text">Firebase</li>
             </ul>
           </div>
   
@@ -126,44 +132,56 @@
       </section>
   
       <section class="projects-section" id="projects">
-         
         <h1 class="section-title">Projects</h1>
-        <div>
-          <h3 class="section-subtitle">Campus Connect</h3>
-          
+
+        <div class="project-card">
+
+          <img class="project-thumbnail" src="assets/images/cc/cc_thumbnail.png" alt="homepage of campus connect">
+
+          <div>
+            <h3>Campus Connect</h3>
+            <p>A university marketplace app built with Laravel + Vue, supporting chat, escrow, and item trading.</p>
+            <div class="project-links">
+              <a href="https://github.com/Drikzz/CampusConnect" target="_blank">View Code</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </div>
         </div>
-  
-         <div>
-          
-         </div>
-         
-         <div>
-  
-         </div>
+
+        <div class="project-card">
+          <h3>Rubik’s Cube AI</h3>
+          <p>A Tkinter GUI tool with OpenCV and Teachable Machine to detect Rubik’s cube face colors.</p>
+          <div class="project-links">
+            <a href="#">View Code</a>
+            <a href="#">Demo</a>
+          </div>
+        </div>
+
       </section>
+
     </div>
 
-  </div>
+  </main>
 
-  <script src="scripts/script.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
   <script>
-  VANTA.NET({
+    VANTA.TRUNK({
     el: "#vanta-bg",
     mouseControls: true,
     touchControls: true,
-    gyroControls: true,
+    gyroControls: false,
     minHeight: 200.00,
     minWidth: 200.00,
     scale: 1.00,
     scaleMobile: 1.00,
-    color: 0xf5e0ea,
-    backgroundColor: 0x171618,
-    points: 9.00
+    spacing: 8.00,
+    chaos: 2.00,
+    color: 0x4a4444,
+    backgroundColor: 0x222222
   })
   </script>
+  <script src="scripts/script.js"></script>
 
 </body>
 </html>
