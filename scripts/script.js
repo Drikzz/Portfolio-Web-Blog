@@ -12,7 +12,6 @@ let vantaEffect;
 
 // openMobile Nav
 function openMobileNav() {
-  
   mobileNav.classList.toggle('active');
   hamburger.classList.toggle('active');
   wholeContainer.classList.toggle('no-scroll');
@@ -22,29 +21,11 @@ function getTheme() {
   return localStorage.getItem('theme') || 'dark'; // fallback to dark
 }
 
-function updateThemeIcons(theme) {
-  const sun = document.getElementById('sun-icon');
-  const moon = document.getElementById('moon-icon');
-  // const mSun = document.getElementById('m-sun-icon');
-  // const mMoon = document.getElementById('m-moon-icon');
-
-  if (theme === 'light') {
-    sun.style.display = 'none';
-    moon.style.display = 'inline-block';
-    // mSun.style.display = 'none';
-    // mMoon.style.display = 'inline-block';
-  } else {
-    sun.style.display = 'inline-block';
-    moon.style.display = 'none';
-    // mSun.style.display = 'inline-block';
-    // mMoon.style.display = 'none';
-  }
-}
-
 function applyTheme() {
   const theme = getTheme();
-  document.body.classList.toggle('light', theme === 'light');
-  updateThemeIcons(theme);
+  // document.body.classList.toggle('light', theme === 'light');
+  document.body.classList.remove('light', 'dark');
+  document.body.classList.add(theme);
 }
 
 function initVanta() {

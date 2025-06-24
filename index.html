@@ -12,10 +12,10 @@
   
   <div id="vanta-bg"></div>
   
-  <i id="sun-icon" class="fa-solid fa-sun toggle-btn" onclick="toggleTheme()"></i>
-  <i id="moon-icon" class="fa-solid fa-moon toggle-btn" onclick="toggleTheme()"></i>
+  <i id="sun-icon" class="fa-solid fa-sun toggle-btn theme-icon" onclick="toggleTheme()"></i>
+  <i id="moon-icon" class="fa-solid fa-moon toggle-btn theme-icon" onclick="toggleTheme()"></i>
 
-  <i class="fa-solid fa-bars toggle-btn" onclick="openMobileNav()"></i>
+  <i class="fa-solid fa-bars toggle-btn theme-icon" onclick="openMobileNav()"></i>
   
   <nav class="mobile-nav">
 
@@ -27,8 +27,8 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <a href="#about">About</a>
-      <i id="m-sun-icon" class="fa-solid fa-sun toggle-btn" onclick="toggleTheme()"></i>
-      <i id="m-moon-icon" class="fa-solid fa-moon toggle-btn" onclick="toggleTheme()"></i>
+      <i id="m-sun-icon" class="fa-solid fa-sun m-theme-icon" onclick="toggleTheme()"></i>
+      <i id="m-moon-icon" class="fa-solid fa-moon m-theme-icon" onclick="toggleTheme()"></i>
 
     </nav>
 
@@ -59,31 +59,32 @@
           <i class="fa-solid fa-file-arrow-down"></i>
         </a>
         
-          <div class="wrapper-buttons">
-        
-              <a class="social-button" href="https://www.linkedin.com/in/aldrikz-suarez-b982302aa">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              
-              <a class="social-button" href="https://github.com/Drikzz">
-                  <i class="fa-brands fa-square-github"></i>
-              </a>
-        
-              <a class="social-button" href="https://www.facebook.com/wagmotoiclick.28">
-                <i class="fa-brands fa-square-facebook"></i>
-              </a>
-              
-              <a class="social-button" href="https://www.instagram.com/akosidrikz/">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
+        <div class="wrapper-buttons">
+      
+            <a class="social-button" href="https://www.linkedin.com/in/aldrikz-suarez-b982302aa">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            
+            <a class="social-button" href="https://github.com/Drikzz">
+                <i class="fa-brands fa-square-github"></i>
+            </a>
+      
+            <a class="social-button" href="https://www.facebook.com/wagmotoiclick.28">
+              <i class="fa-brands fa-square-facebook"></i>
+            </a>
+            
+            <a class="social-button" href="https://www.instagram.com/akosidrikz/">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
 
-          </div>
+        </div>
 
       </div>
 
     </section>
 
     <div class="scroll-section">
+
       <section class="skills-section" id="skills">
         <h1 class="section-title">Skills</h1>
   
@@ -102,9 +103,9 @@
             <ul>
               <li class="contrast-text">HTML5</li>
               <li class="contrast-text">CSS</li>
-              <li class="contrast-text">Tailwind</li>
+              <li class="contrast-text">Tailwind CSS</li>
               <li class="contrast-text">JavaScript</li>
-              <li class="contrast-text">Vue</li>
+              <li class="contrast-text">Vue.js</li>
             </ul>
   
           </div>
@@ -134,26 +135,155 @@
       <section class="projects-section" id="projects">
         <h1 class="section-title">Projects</h1>
 
-        <div class="project-card">
+        <div class="project-card contrast-text">
 
-          <img class="project-thumbnail" src="assets/images/cc/cc_thumbnail.png" alt="homepage of campus connect">
+          <div class="project-images-container">
 
-          <div>
-            <h3>Campus Connect</h3>
-            <p>A university marketplace app built with Laravel + Vue, supporting chat, escrow, and item trading.</p>
-            <div class="project-links">
-              <a href="https://github.com/Drikzz/CampusConnect" target="_blank">View Code</a>
-              <a href="#">Live Demo</a>
+            <img class="project-thumbnail" src="assets/images/cc/cc_thumbnail.png" alt="homepage of campus connect">
+
+            <img class="project-images" src="assets/images/cc/cc_img1.png" alt="">
+            <img class="project-images" src="assets/images/cc/cc_img2.png" alt="">
+            <img class="project-images" src="assets/images/cc/cc_img3.png" alt="">
+
+          </div>
+
+          <div class="project-description-container">
+
+            <div class="project-title-container">
+              <h3 class="project-title">Campus Connect</h3>
+              
+              <div class="stack contrast-text">
+                <p class="project-type">
+                  SE Final Project
+                </p>
+              </div>
+
             </div>
+            
+            <p class="project-description">A campus-only marketplace where students and staff can <b>buy 💸</b>, <b>sell 🛍️</b>, or <b>trade 🔁</b> using their <b>school email 🎓</b>. Built to be <b>simple ✅</b>, <b>secure 🔐</b>, and made just for the <b>university hustle 📚</b>.</p>
+
+          </div>
+
+          <div class="project-stack">
+            
+            <div class="stack contrast-text">
+              <p>Laravel</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>Vue.js</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>Tailwind CSS</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>Inertia.js</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>MySQL</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>XAMPP</p>
+            </div>
+
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/Drikzz/CampusConnect" target="_blank">View Code ✨</a>
+            <a href="#">Live Demo not available &#128557;</a>
           </div>
         </div>
 
-        <div class="project-card">
-          <h3>Rubik’s Cube AI</h3>
-          <p>A Tkinter GUI tool with OpenCV and Teachable Machine to detect Rubik’s cube face colors.</p>
+        <div class="project-card contrast-text">
+
+          <div class="project-images-container">
+
+            <img class="project-thumbnail" src="assets/images/gorilla/thumbnail.webp" alt="homepage of campus connect">
+
+            <img class="project-images" src="assets/images/gorilla/1.webp" alt="">
+            <img class="project-images" src="assets/images/gorilla/2.webp" alt="">
+          </div>
+
+          <div class="project-description-container">
+
+            <div class="project-title-container">
+              <h3 class="project-title">Gorilla Store</h3>
+              
+              <div class="stack contrast-text">
+                <p class="project-type">
+                  School Project
+                </p>
+              </div>
+
+            </div>
+            
+            <p>
+              Wanna flex your drip online? 💃🕺 <strong>Gorilla Store</strong> got you covered! 🦍✨ Post your clothing line and let the customer shop your style. 🧥👕🔥 Built by <strong>me</strong> and <strong>Art Cadiz</strong> 👊.
+            </p>
+
+          </div>
+
+          <div class="project-stack">
+            
+            <div class="stack contrast-text">
+              <p>Laravel</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>React</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>Tailwind CSS</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>XAMPP</p>
+            </div>
+
+          </div>
+
           <div class="project-links">
-            <a href="#">View Code</a>
-            <a href="#">Demo</a>
+            <a href="#">Live Demo not available &#128557;</a>
+          </div>
+        </div>
+        
+        <div class="project-card contrast-text">
+
+          <div class="project-images-container">
+
+            <img class="project-thumbnail" src="assets/images/snaptalk/thumbnail.webp" alt="homepage of campus connect">
+
+            <img class="project-images" src="assets/images/snaptalk/1.webp" alt="">
+            <img class="project-images" src="assets/images/snaptalk/2.webp" alt="">
+            <img class="project-images" src="assets/images/snaptalk/3.webp" alt="">
+          </div>
+
+          <div class="project-description-container">
+
+            <div class="project-title-container">
+              <h3 class="project-title">SnapTalk</h3>
+              
+              <div class="stack contrast-text">
+                <p class="project-type">
+                  School Project
+                </p>
+              </div>
+
+            </div>
+            
+            <p class="project-description">This is a school project made by <b>Me</b> 🐒 (yes, me), <b>Art Cadiz</b> 🗿, and <b>Myke Jimenez</b> 😏 for CS Elective 3 💻. We were challenged to build an app using FlutterFlow and integrate it with Firebase — and honestly, we had way too much fun figuring it all out (and occasionally breaking things 😅).</p> 
+          </div>
+
+          <div class="project-stack">
+            
+            <div class="stack contrast-text">
+              <p>FluterFlow</p>
+            </div>
+            <div class="stack contrast-text">
+              <p>Firebase</p>
+            </div>
+
+          </div>
+
+          <div class="project-links">
+            <a href="#">Live Demo not available &#128557;</a>
           </div>
         </div>
 
@@ -165,22 +295,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
-  <script>
-    VANTA.TRUNK({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    spacing: 8.00,
-    chaos: 2.00,
-    color: 0x4a4444,
-    backgroundColor: 0x222222
-  })
-  </script>
   <script src="scripts/script.js"></script>
 
 </body>

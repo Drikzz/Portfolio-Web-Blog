@@ -52,49 +52,49 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('tff');
+  src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('tff');
+  src: url('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('ttf');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf') format('tff');
+  src: url('../assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf') format('ttf');
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format('tff');
+  src: url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format('ttf');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat/Montserrat-BoldItalic.ttf') format('tff');
+  src: url('../assets/fonts/Montserrat/Montserrat-BoldItalic.ttf') format('ttf');
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Merriweather';
-  src: url('../assets/fonts/Merriweather/Merriweather_24pt-Regular.ttf') format('tff');
+  src: url('../assets/fonts/Merriweather/Merriweather_24pt-Regular.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Merriweather';
-  src: url('../assets/fonts/Merriweather/Merriweather_24pt-Bold.ttf') format('tff');
+  src: url('../assets/fonts/Merriweather/Merriweather_24pt-Bold.ttf') format('ttf');
   font-weight: 700;
   font-style: normal;
 }
@@ -113,7 +113,8 @@ section,
 .skills-grid li,
 .intro-description,
 .cv-button,
-.social-button {
+.social-button,
+a {
   transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
@@ -186,11 +187,18 @@ body {
   overflow: hidden;
 }
 
-#sun-icon, #moon-icon {
+#sun-icon, 
+#moon-icon,
+#m-sun-icon,
+#m-moon-icon {
   display: none;
 }
 
-#m-sun-icon, #m-moon-icon {
+body.light #m-moon-icon {
+  display: inline-block;
+}
+
+body.dark #m-sun-icon {
   display: inline-block;
 }
 
@@ -199,11 +207,22 @@ body {
   top: 2rem;
   right: 2rem;
   font-size: var(--fs-xl);
-  color: var(--text);
   z-index: 100;
 }
 
-.toggle-btn.active {
+.theme-icon {
+  color: var(--text);
+}
+
+.m-theme-icon {
+  color: var(--primary);
+}
+
+.m-theme-icon.active {
+  color: var(--primary);
+}
+
+.theme-icon.active {
   color: var(--primary);
 }
 
@@ -271,10 +290,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* width: 100%; */
   min-height: 100vh;
   padding: 2rem;
-  /* margin-bottom: var(--spacing); */
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -292,7 +309,7 @@ body {
 }
 
 .profile {
-  width: 15rem;
+  width: 10rem;
   border-radius: 7.5rem;
   border: 0.5rem solid var(--secondary);
 
@@ -385,7 +402,7 @@ body {
 }
 
 .section-title {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
   margin-bottom: 1.5rem;
 }
 
@@ -400,7 +417,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.skills-grid ul {
+.skills-grid ul, .project-stack {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -410,14 +427,16 @@ body {
   gap: 0.5rem;
 }
 
-.skills-grid li {
+.skills-grid li, .stack {
   /* backdrop-filter: blur(2px); */
   /* -webkit-backdrop-filter: blur(2px);  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  width: fit-content;
-  padding: 0.5rem 1rem;
+  min-width: fit-content;
+  padding: var(--btn-padding-sm);
   border-radius: var(--border-radius);
-  margin-bottom: 0.5rem;
   transition: all 0.3s ease-out;
 }
 
@@ -428,48 +447,85 @@ body {
 }
 
 .project-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
   padding: var(--spacing);
-  margin-bottom: 1.5rem;
-  border-radius: var(--border-radius-);
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
   color: var(--text);
-
-  transition: background-color 0.2s ease-in-out;
-}
-
-.project-thumbnail {
-  /* aspect-ratio: 16/9; */
-  width: 10rem;
-  object-fit: cover;
 }
 
 .project-card:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.project-card h3 {
+body.light .project-card:hover {
+  background-color: var(--text-bg);
+}
+
+.project-images-container {
+  display: flex;
+  gap: var(--spacing);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  margin-bottom: var(--spacing);
+}
+
+.project-thumbnail,
+.project-images {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.project-description-container {
+  margin-bottom: var(--spacing);
+}
+
+.project-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   font-size: var(--fs-lg);
   margin-bottom: 0.5rem;
 }
 
-.project-card p {
+.project-title {
+  font-size: var(--fs-md);
+  margin-right: var(--spacing);
+}
+
+.project-type {
   font-size: var(--fs-sm);
-  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  font-size: var(--fs-sm);
+}
+
+.project-stack {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-links a {
   margin-right: 1rem;
   font-size: var(--fs-sm);
-  color: var(--highlight);
-  text-decoration: underline;
-}
-
-.project-links a:hover {
   color: var(--text);
 }
+
+
 
 
 /* xs */
@@ -512,7 +568,15 @@ body {
     margin: 0;
   } */
 
-  #sun-icon, #moon-icon {
+  .fa-solid, .fa-brands {
+    font-size: var(--fs-xl);
+  }
+
+  body.light #moon-icon {
+    display: inline-block;
+  }
+
+  body.dark #sun-icon {
     display: inline-block;
   }
 
@@ -520,6 +584,14 @@ body {
   .mobile-nav,
   .fa-bars {
     display: none !important;
+  }
+
+  .profile {
+    width: 12rem;
+  }
+  .buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .btn:hover {
@@ -540,6 +612,10 @@ body {
     background-color: var(--highlight);
     cursor: pointer;
   }
+
+  .project-links a:hover {
+  text-decoration: underline;
+}
 }
 
 /* xl */
