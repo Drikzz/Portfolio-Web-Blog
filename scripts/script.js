@@ -44,8 +44,8 @@ function initVanta() {
     scaleMobile: 1.00,
     spacing: 8.00,
     chaos: 2.00,
-    color: theme === 'light' ? 0x4a4444 : 0x4a4444,        // light mode color
-    backgroundColor: theme === 'light' ? 0xFFFFFF : 0x222222 // light bg / dark bg
+    color: theme === 'light' ? 0x121212 : 0x555555,        // light mode color
+    backgroundColor: theme === 'light' ? 0xE0E0E0 : 0x121212 // light bg / dark bg
   });
 }
 
