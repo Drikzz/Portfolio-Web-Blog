@@ -62,14 +62,12 @@ body {
 }
 
 .light {
-  --color-bg: #E0E0E0;               /* light background */
-  --color-primary-text: #121212;     /* dark text */
-  --color-secondary-text: #555555;   /* subtle text */
-  --color-border: #cccccc;           /* light border */
-  --color-accent: #555555;           /* same as secondary text or tweak if needed */
-
+  --color-bg: #E0E0E0; /* light background */
+  --color-primary-text: #121212; /* dark text */
+  --color-secondary-text: #555555; /* subtle text */
+  --color-border: #cccccc; /* light border */
+  --color-accent: #555555; /* same as secondary text or tweak if needed */
   --bg-color: var(--color-bg); /* same as background for contrast text-*/
-  
 }
 
 h1, h2 {
@@ -96,11 +94,6 @@ p {
 a {
   color: var(--color-primary-text);
   text-decoration: none;
-}
-
-a:active, a:hover {
-  color: var(--color-primary-text);
-  text-decoration: underline;
 }
 
 #vanta-bg {
@@ -253,7 +246,7 @@ body.dark #m-sun-icon {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  border-radius: var(--border-radius);  
+  border-radius: var(--radius);  
   margin-bottom: var(--spacing-lg);
 }
 
@@ -292,6 +285,7 @@ body.dark #m-sun-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .li-line {
@@ -316,7 +310,7 @@ body.dark #m-sun-icon {
 
 .fa-solid, .fa-brands {
   font-size: var(--fs-lg);
-  color: var(--color-primary-text);
+  /* color: var(--color-primary-text); */
 }
 
 .cv-button {
@@ -333,26 +327,16 @@ body.dark #m-sun-icon {
   color: var(--color-bg);
   font-weight: 600;
   font-size: var(--fs-base);
-  
+
   border: 2px solid transparent;
-  /* cursor: pointer; */
   transition: all var(--transition-time) ease;
 }
 
-.cv-button:hover {
+.cv-button:active {
   background-color: transparent;
   border-color: var(--color-primary-text);
   color: var(--color-primary-text);
   transform: translateY(-2px);
-}
-
-.cv-button .fa-file-arrow-down {
-  color: inherit;
-  transition: transform var(--transition-time) ease;
-}
-
-.cv-button:hover .fa-file-arrow-down {
-  transform: translateY(2px);
 }
 
 .wrapper-buttons {
@@ -374,22 +358,17 @@ body.dark #m-sun-icon {
   align-items: center;
   
   transition: all var(--transition-time) ease;
-  /* cursor: pointer; */
 }
 
-.social-button:hover {
+.social-button:active {
   border-color: var(--color-primary-text);
   color: var(--color-primary-text);
   transform: translateY(-2px);
   background-color: rgba(224, 224, 224, 0.1);
 }
 
-.btn:active, .social-button:active {
-  transform: scale(0.95);
-}
-
 .section-title {
-  margin-bottom: 3rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .section-subtitle {
@@ -462,6 +441,7 @@ body.light .project-card:hover {
 .project-thumbnail,
 .project-images {
   width: 100%;
+  /* max-width: clamp(10rem, 20vw, 20rem); */
   object-fit: cover;
   scroll-snap-align: center;
   scroll-snap-stop: always;
@@ -506,20 +486,18 @@ body.light .project-card:hover {
 }
 
 .project-links a {
-  margin-right: var(--spacing-lg);
+  margin-right: var(--spacing-sm);
   font-size: var(--fs-sm);
+}
+
+.project-links a:active {
+  text-decoration: underline;
 }
 
 .about-content,
 .contact-content {
   font-size: var(--fs-sm);
   border-radius: var(--radius);
-  /* margin-top: var(--spacing-lg); */
-}
-
-.about-content a,
-.contact-content a {
-  text-decoration: underline;
 }
 
 .about-content-section, .contact-content {
@@ -527,12 +505,24 @@ body.light .project-card:hover {
   padding: var(--spacing-lg);
 }
 
+.about-content-section .profile-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content a,
+.contact-content a {
+  text-decoration: underline;
+}
+
 .profile {
   text-align: center;
-  width: 100%;
+  width: 80%;
   border-radius: 50%;
   border: 0.5rem solid var(--color-primary-text);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .intro-description, .about-stats {
@@ -544,6 +534,10 @@ body.light .project-card:hover {
 
 .about-stats li {
   list-style: none;
+}
+
+.desktop-contact {
+  display: none;
 }
 
 /* xs */
@@ -558,8 +552,25 @@ body.light .project-card:hover {
 
 /* md */
 @media (min-width: 768px) {
-  .buttons-container {
-    gap: var(--spacing-lg);
+  .intro-section, 
+  .skills-section, 
+  .projects-section, 
+  .about-section,
+  .contact-section {
+    padding: var(--spacing-lg) 3rem;
+  }
+
+  .intro-section {
+    padding-top: 5rem;
+  }
+
+  .project-thumbnail,
+  .project-images {
+    width: 80%;
+  }
+
+  .profile {
+    width: 40%;
   }
 }
 
@@ -570,10 +581,6 @@ body.light .project-card:hover {
     height: 100vh;
     overflow-y: scroll;
     overflow: hidden;
-  }
-
-  .fa-solid, .fa-brands {
-    font-size: var(--fs-xl);
   }
 
   body.light #moon-icon {
@@ -592,31 +599,54 @@ body.light .project-card:hover {
     display: none !important;
   }
 
+  .fa-solid, .fa-brands {
+    font-size: var(--fs-xl);
+    cursor: pointer;
+  }
+
   .whole-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
   }
 
+  .intro-section, 
+  .skills-section, 
+  .projects-section, 
+  .about-section,
+  .contact-section {
+    padding: 3rem 4rem;
+  }
+
+  .skills-section, 
+  .projects-section,
+  .about-section,
+  .contact-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+  }
+  
   .intro-section {
     position: sticky;
     top: 0;
     height: 100vh;
   }
+  
+  .scroll-section {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
 
   .intro-navigation {
     display: inline-block;
   }
-  
-  .profile {
-    width: 12rem;
-  }
 
-  .buttons-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--spacing-md);
-    align-items: center;
+  .project-thumbnail,
+  .project-images {
+    width: 100%;
   }
 
   .cv-button:hover {
@@ -632,33 +662,25 @@ body.light .project-card:hover {
     transform: translateY(-2px);
     background-color: var(--bg-color);
   }
-
-  .scroll-section {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
-
-  .skills-section, 
-  .projects-section,
-  .about-section,
-  .contact-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100vh;
-  }
   
   .skills-grid li:hover {
     border-color: var(--color-primary-text);
     color: var(--color-primary-text);
     transform: translateY(-2px);
     background-color: var(--bg-color);
-    cursor: pointertext-;
+    cursor: pointer;
   }
 
   .project-links a:hover {
     text-decoration: underline;
+  }
+
+  .mobile-contact {
+    display: none;
+  }
+  
+  .desktop-contact {
+    display: block;
   }
 }
 
