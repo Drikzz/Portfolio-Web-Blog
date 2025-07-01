@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Tour Blog</title>
+
+  <!-- FONTS LINKS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- STYLE SHEET -->
+  <link rel="stylesheet" href="../styles/tour.css">
+
+  <!-- ICONS -->
+  <script src="https://kit.fontawesome.com/6b6a8b19b9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div id="vanta-bg"></div>
+  
+  <i id="sun-icon" class="fa-solid fa-sun toggle-btn theme-icon" onclick="toggleTheme()"></i>
+  <i id="moon-icon" class="fa-solid fa-moon toggle-btn theme-icon" onclick="toggleTheme()"></i>
+
+  <i class="fa-solid fa-bars toggle-btn theme-icon" onclick="openMobileNav()"></i>
+  
+  <nav class="mobile-nav">
+
+    <div class="nav-blur"></div>
+
+    <nav class="nav-bar">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <i id="m-sun-icon" class="fa-solid fa-sun m-theme-icon" onclick="toggleTheme()"></i>
+      <i id="m-moon-icon" class="fa-solid fa-moon m-theme-icon" onclick="toggleTheme()"></i>
+
+    </nav>
+
+  </nav>
+
+  <main class="whole-container">
+
+    <section class="intro-section flex-column" id="home">
+
+      <div class="section-content contrast-text">
+
+        <h1 class="section-title intro-title">
+          INDUSTRY IMMERSION TOUR BLOG!
+        </h1>
+
+        <div class="flex-column section-subtitle-container">
+
+          <p class="section-subtitle">
+            Welcome! I'm Aldrikz N. Suarez. This blog is a collection of my experiences and learnings from the CSS Tour, a program designed to immerse students in the world of web development. Here, I will share insights, challenges, and achievements as I navigate through various projects and skills in the field of web design and development.
+          </p>
+
+          <div class="tags-container flex">
+            <p class="tag contrast-text">#Manila_Tour</p>
+            <p class="tag contrast-text">#Industry_Immersion</p>
+            <p class="tag contrast-text">#Techonology_Companies</p>
+            <p class="tag contrast-text">#Work</p>
+            <p class="tag contrast-text">#Adventure</p>
+            <p class="tag contrast-text">#Self_Reflection</p>
+          </div>
+        </div>
+
+      </div>
+      
+    </section>
+    
+    <section class="day-one-section flex-column" id="home">
+
+      <div class="section-content day-one-section contrast-text">
+
+        <div class="section-title-container day-one-section flex">
+
+          <h1 class="section-title day-one-title">
+            CITY TOUR IN MANILA.
+          </h1>
+
+          <p class="tag contrast-text">
+            #DAY_1
+          </p>
+
+        </div>
+
+        <div class="flex-column section-subtitle-container">
+
+          <p class="section-subtitle">
+            Welcome! I'm Aldrikz N. Suarez. This blog is a collection of my experiences and learnings from the CSS Tour, a program designed to immerse students in the world of web development. Here, I will share insights, challenges, and achievements as I navigate through various projects and skills in the field of web design and development.
+          </p>
+
+          <div class="tags-container flex">
+            <p class="tag contrast-text">#Manila_Tour</p>
+            <p class="tag contrast-text">#Industry_Immersion</p>
+            <p class="tag contrast-text">#Techonology_Companies</p>
+            <p class="tag contrast-text">#Work</p>
+            <p class="tag contrast-text">#Adventure</p>
+            <p class="tag contrast-text">#Self_Reflection</p>
+          </div>
+        </div>
+
+      </div>
+      
+
+    </section>
+
+    <div class="scroll-section">
+
+    </div>
+  </main>
+  
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
+  <script src="../scripts/script.js"></script>
+
+</body>
+</html>

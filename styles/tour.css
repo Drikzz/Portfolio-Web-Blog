@@ -1,0 +1,352 @@
+:root {
+
+  /* Fonts */
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Dynamix', sans-serif;
+
+  /* <----------------------> NEW */
+  /* colors */
+  --color-bg: #121212; /* vanta 0x121212 */
+  --color-primary-text: #E0E0E0; /* vanta 0xE0E0E0 */
+  --color-secondary-text: #888888; /* vanta 0x888888 */
+  --color-border: #444444; /* vanta 0x444444 */
+  --color-accent: #888888; /* vanta 0x888888 */ 
+
+  /* Layout */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --radius: 5px;
+
+  /* Font Sizes */
+  --fs-xs: clamp(0.75rem, 0.6vw, 0.875rem); /* 12px–14px */
+  --fs-sm: clamp(0.875rem, 0.8vw, 1rem); /* 14px–16px */
+  --fs-base: clamp(1rem, 1vw, 1.125rem); /* 16px–18px */
+  --fs-md: clamp(1.125rem, 1.2vw, 1.25rem); /* 18px–20px */
+  --fs-lg: clamp(1.25rem, 1.5vw, 1.5rem); /* 20px–24px */
+  --fs-xl: clamp(1.5rem, 2vw, 2rem); /* 24px–32px */
+  --fs-2xl: clamp(2rem, 3vw, 2.5rem); /* 32px–40px */
+
+  /* transition */
+  --transition-time: 0.3s;
+
+  /* Readability */
+  --bg-color: rgba(0, 0, 0, 0.1);
+  --bg-text-color: var(--color-bg);
+}
+
+@font-face {
+  font-family: 'Dynamix';
+  src: url(../assets/fonts/Dynamix/Dynamix.ttf);
+}
+
+/* highlight */
+::selection {
+  color: var(--color-bg);
+  background-color: var(--color-primary-text);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color var(--transition-time) ease, color var(--transition-time) ease, border var(--transition-time) ease, transform var(--transition-time) ease;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-primary-text);
+  line-height: 1.6;
+  height: 100vh;
+}
+
+.light {
+  --color-bg: #E0E0E0; /* light background */
+  --color-primary-text: #121212; /* dark text */
+  --color-secondary-text: #555555; /* subtle text */
+  --color-border: #cccccc; /* light border */
+  --color-accent: #555555; /* same as secondary text or tweak if needed */
+  --bg-color: var(--color-bg); /* same as background for contrast text-*/
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  color: var(--color-primary-text);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--fs-lg);
+}
+
+h3 {
+  font-size: var(--fs-base);
+}
+
+p {
+  color: var(--color-primary-text);
+  font-size: var(--fs-base);
+  font-family: var(--font-primary);
+}
+
+a {
+  color: var(--color-primary-text);
+  text-decoration: none;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* send it behind everything */
+  pointer-events: none;  /* let clicks go through */
+}
+
+.contrast-text {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--bg-color);
+  padding: var(--spacing-sm);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: fit-content;
+}
+
+#sun-icon, 
+#moon-icon {
+  display: none;
+}
+
+#m-sun-icon,
+#m-moon-icon {
+  display: none;
+}
+
+body.light #m-moon-icon {
+  display: inline-block !important;
+}
+
+body.dark #m-sun-icon {
+  display: inline-block !important;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: var(--fs-xl);
+  z-index: 100;
+}
+
+.theme-icon {
+  color: var(--color-primary-text);
+}
+
+.m-theme-icon {
+  color: var(--color-bg);
+}
+
+.m-theme-icon.active {
+  color: var(--color-bg);
+}
+
+.theme-icon.active {
+  color: var(--color-bg);
+}
+
+.mobile-nav {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none; 
+}
+
+.nav-blur, .nav-bar {
+  height: 100%;
+  width: 50%;
+}
+
+.nav-bar {
+  display: flex;
+  background-color: var(--color-primary-text);
+  transform: translateX(100%);
+  transition: transform var(--transition-time) ease-in-out;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4rem 0;
+  gap: var(--fs-2xl);
+}
+
+.nav-bar a {
+  color: var(--color-bg);
+  font-size: var(--fs-base);
+}
+
+.nav-blur {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px); /* apply blur */
+  -webkit-backdrop-filter: blur(2px); /* for Safari */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.mobile-nav {
+  display: flex !important;
+}
+
+.mobile-nav.active .nav-blur{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.mobile-nav.active .nav-bar{
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.whole-container {
+  display: block;
+}
+
+.intro-section {
+  padding-top: 5rem;
+}
+
+section {
+  padding: var(--spacing-lg) var(--spacing-lg);
+}
+
+.section-content {
+  padding: var(--spacing-lg);
+}
+
+/* .section-title-container {
+
+} */
+
+.day-one-section {
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+.day-one-section .day-one-title{
+  margin-bottom: 0;
+}
+
+.section-title {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-subtitle {
+  margin-bottom: var(--spacing-lg);
+}
+
+.tags-container {
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.tag {
+  font-weight: 700;
+}
+
+
+
+/* xs */
+@media (min-width: 475px) {
+  
+}
+
+/* sm */
+@media (min-width: 640px) {
+  
+}
+
+/* md */
+@media (min-width: 768px) {
+  .intro-section, 
+  .skills-section, 
+  .projects-section, 
+  .about-section,
+  .contact-section {
+    padding: var(--spacing-lg) 3rem;
+  }
+
+  .intro-section {
+    padding-top: 5rem;
+  }
+
+  .project-thumbnail,
+  .project-images {
+    width: 80%;
+  }
+
+  .profile {
+    width: 40%;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+
+  body {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow: hidden;
+  }
+
+  body.light #moon-icon {
+    display: inline-block;
+  }
+
+  body.dark #sun-icon {
+    display: inline-block;
+  }
+
+  /* Hide mobile-specific elements on desktop */
+  #m-sun-icon, 
+  #m-moon-icon,
+  .mobile-nav,
+  .fa-bars {
+    display: none !important;
+  }
+
+  .fa-solid, .fa-brands {
+    font-size: var(--fs-xl);
+    cursor: pointer;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+  
+}

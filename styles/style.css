@@ -216,7 +216,6 @@ body.dark #m-sun-icon {
 
 .whole-container {
   display: block;
-  z-index: 100;
 }
 
 .intro-section, 
@@ -247,12 +246,11 @@ body.dark #m-sun-icon {
   justify-content: center;
   width: 100%;
   border-radius: var(--radius);  
-  margin-bottom: var(--spacing-lg);
 }
 
 .intro-title {
   font-size: var(--fs-2xl);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .intro-subtitle {
