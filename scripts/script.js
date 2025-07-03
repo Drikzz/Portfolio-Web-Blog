@@ -4,6 +4,8 @@ const mobileNav = document.querySelector('.mobile-nav');
 const navBlur = document.querySelector('.nav-blur');
 const navLinks = document.querySelectorAll('.nav-bar a');
 
+const imagesDayOne = document.querySelector('.section-images-container');
+
 // Body
 const wholeContainer = document.querySelector('.whole-container');
 
