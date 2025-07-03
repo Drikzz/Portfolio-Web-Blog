@@ -51,7 +51,7 @@
   padding: 0;
   box-sizing: border-box;
   transition: background-color var(--transition-time) ease, color var(--transition-time) ease, border var(--transition-time) ease, transform var(--transition-time) ease;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {
