@@ -51,7 +51,6 @@
   padding: 0;
   box-sizing: border-box;
   transition: background-color var(--transition-time) ease, color var(--transition-time) ease, border var(--transition-time) ease, transform var(--transition-time) ease;
-  /* border: 1px solid red; */
 }
 
 body {
@@ -253,20 +252,41 @@ section {
 }
 
 .days-container {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+}
+
+.section-content {
   row-gap: var(--spacing-lg);
 }
 
-.days-title-container {
-  margin-bottom: var(--spacing-lg);
-  /* gap: var(--spacing-md); */
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-border);
 }
 
-.days-title-container .days-title{
+.section-title-container {
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.section-title-container .days-title{
   margin-bottom: 0;
 }
 
-/* .section-title-container {
+/* .days-title {
+  font-size: var(--fs-md);
 
+  THE SECTION TITLE IS TOO BIG CAUSING TO OVERFLOW THE CONTAINER
 } */
 
 .section-title {
@@ -295,6 +315,7 @@ section {
 }
 
 .tags-container {
+  display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
 }
@@ -342,6 +363,10 @@ section {
   .fa-solid, .fa-brands {
     font-size: var(--fs-xl);
     cursor: pointer;
+  }
+
+  .section-image {
+    width: 60%;
   }
 }
 
