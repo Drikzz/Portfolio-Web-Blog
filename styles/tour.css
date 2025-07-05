@@ -239,7 +239,7 @@ body.dark #m-sun-icon {
 }
 
 section {
-  padding: var(--spacing-lg) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   width: 100%;
 }
 
