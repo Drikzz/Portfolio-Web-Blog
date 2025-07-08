@@ -110,7 +110,7 @@ a {
 .contrast-text {
   border: 2px solid var(--color-border);
   border-radius: var(--radius);
-  background-color: var(--bg-color);
+  background-color: var(--color-bg); 
   padding: var(--spacing-sm);
 }
 
@@ -283,17 +283,16 @@ section {
   margin-bottom: 0;
 }
 
-/* .days-title {
-  font-size: var(--fs-md);
-
-  THE SECTION TITLE IS TOO BIG CAUSING TO OVERFLOW THE CONTAINER
-} */
-
 .section-title {
   margin-bottom: var(--spacing-lg);
 }
 
-.section-images-container {
+.section-0-images-container,
+.section-1-images-container,
+.section-2-images-container,
+.section-3-images-container,
+.section-4-images-container,
+.section-5-images-container {
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;

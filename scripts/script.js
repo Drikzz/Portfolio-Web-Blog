@@ -61,21 +61,22 @@ function toggleTheme() {
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
+
   applyTheme();
   initVanta();
-});
 
-
-navBlur.addEventListener('click', () => {
-  mobileNav.classList.remove('active');
-  hamburger.classList.remove('active');
-  wholeContainer.classList.remove('no-scroll');
-});
-
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
+  navBlur.addEventListener('click', () => {
     mobileNav.classList.remove('active');
     hamburger.classList.remove('active');
     wholeContainer.classList.remove('no-scroll');
-  })
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      hamburger.classList.remove('active');
+      wholeContainer.classList.remove('no-scroll');
+    })
+  });
+
 });

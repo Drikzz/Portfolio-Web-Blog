@@ -1,28 +1,43 @@
-const secImagesCon = document.querySelector('.section-images-container');
+const sectionNumbers = [1, 2, 3, 4, 5];
+const sectionImages = {
+  1: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
+  2: ['1.jpg', '2.png', '3.jpg', '4.png'],
+  3: ['1.png', '2.png', '3.jpg', '4.png'],
+  4: ['1.png', '2.png', '3.png', '4.png'],
+  5: ['1.jpg', '2.jpg', '3.jpg', '4.jpg'],
+  // 6: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+};
 
-// Function to load images dynamically
-function loadImages() {
+function loadImagesForSection(day) {
 
-  for (let day = 0; day <= 1; day++) {
+  // Declare the container ID based on the day
+  const container = document.querySelector(`.section-${day}-images-container`);
 
-    for (let i = 1; i <= 4; i++) {
-      const img = document.createElement('img');
-      img.src = `../assets/images/day-${day}/${i}.jpg`;
-      img.alt = `Day ${day} - Image ${i}`;
-      img.classList.add('section-image');
+  // check if containers exists, if not, end
+  if (!container) return;
+  
+  const images = sectionImages[day];
+  if (!images) return;
+  
+  images.forEach(filename => {
+    const img = document.createElement('img');
+    img.src = `../assets/images/day-${day}/${filename}`;
+    img.alt = `Day ${day} - ${filename}`;
+    img.classList.add('section-image');
+    container.appendChild(img);
 
-      img.onload = () => {
-        secImagesCon.appendChild(img);
-      };
-
-      img.onerror = () => {
-        console.log(`Missing: day-${day}/${i}.jpg`);
-      };
-
-    }
-
-  }
+    img.onerror = () => {
+      console.log(`Missing: day-${day}/${filename}`);
+    };
+  });
 
 }
 
-// loadImages();
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Loop through all sections
+  for (let i = 0; i < 5; i++) {
+    loadImagesForSection(sectionNumbers[i]);
+  }
+  
+});
