@@ -13,8 +13,8 @@ const wholeContainer = document.querySelector('.whole-container');
 let vantaEffect;
 
 // Modal variables
-let currentModalImages = [];
-let currentModalIndex = 0;
+let modalImages = [];
+let modalIndex = 0;
 
 // openMobile Nav
 function openMobileNav() {
@@ -68,8 +68,8 @@ function openImageModal(imageSrc, images) {
   const modal = document.getElementById('imageModal');
   const modalImage = document.getElementById('modalImage');
   
-  currentModalImages = images;
-  currentModalIndex = images.indexOf(imageSrc);
+  modalImages = images;
+  modalIndex = images.indexOf(imageSrc);
   
   modalImage.src = imageSrc;
   modal.style.display = 'flex';
@@ -83,18 +83,18 @@ function closeImageModal() {
 }
 
 function navigateModal(direction) {
-  if (currentModalImages.length === 0) return;
+  if (modalImages.length === 0) return;
   
-  currentModalIndex += direction;
+  modalIndex += direction;
   
-  if (currentModalIndex < 0) {
-    currentModalIndex = currentModalImages.length - 1;
-  } else if (currentModalIndex >= currentModalImages.length) {
-    currentModalIndex = 0;
+  if (modalIndex < 0) {
+    modalIndex = modalImages.length - 1;
+  } else if (modalIndex >= modalImages.length) {
+    modalIndex = 0;
   }
   
   const modalImage = document.getElementById('modalImage');
-  modalImage.src = currentModalImages[currentModalIndex];
+  modalImage.src = modalImages[modalIndex];
 }
 
 function initializeImageModal() {
