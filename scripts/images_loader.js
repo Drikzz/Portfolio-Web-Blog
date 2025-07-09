@@ -25,12 +25,24 @@ function loadImagesForSection(day) {
   
   const images = sectionImages[day];
   if (!images) return;
+
+  // image navigation for the 4 images in each section
+  // Create array of image sources for modal navigation
+  const sectionImageSources = images.map(filename => `../assets/images/day-${day}/${filename}`);
   
   images.forEach(filename => {
     const img = document.createElement('img');
     img.src = `../assets/images/day-${day}/${filename}`;
     img.alt = `Day ${day} - ${filename}`;
     img.classList.add('section-image');
+    
+    // image navigation
+    // Add click event for modal
+    img.addEventListener('click', () => openImageModal(img.src, sectionImageSources));
+    
+    // Add cursor pointer style
+    img.style.cursor = 'pointer';
+    
     container.appendChild(img);
 
     img.onerror = () => {
@@ -40,7 +52,6 @@ function loadImagesForSection(day) {
 
 }
 
-// gpt
 // Gallery functions
 function loadGalleryImagesForDay(day) {
   const container = document.getElementById(`gallery-day-${day}`);
@@ -110,6 +121,11 @@ function initializeGalleryTabs() {
       // Add active class to clicked tab and corresponding container
       tab.classList.add('active');
       document.querySelector(`.gallery-day-container[data-day="${day}"]`).classList.add('active');
+
+      // Load images only when tab is clicked
+      if (!galleryImages[day]) {
+        loadGalleryImagesForDay(day);
+      }
     });
   });
 }
@@ -180,14 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadImagesForSection(sectionNumbers[i]);
   }
 
-  // gpt
   // Initialize gallery functionality
   initializeGalleryTabs();
   initializeImageModal();
   
   // Load gallery images for each day
-  for (let day = 1; day <= 7; day++) {
-    loadGalleryImagesForDay(day);
-  }
-
+  loadGalleryImagesForDay(1);
 });

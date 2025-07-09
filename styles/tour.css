@@ -234,8 +234,17 @@ body.dark #m-sun-icon {
   display: block;
 }
 
-.intro-section {
+.back-to-portfolio-section {
   padding-top: 5rem;
+}
+
+.back-to-portfolio-section a:hover p{
+  color: var(--color-primary-text);
+  font-size: var(--fs-md);
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
 section {
@@ -328,7 +337,6 @@ section {
   font-weight: 700;
 }
 
-/* gpt */
 /* Gallery Styles */
 .gallery-tabs {
   display: flex;
@@ -378,18 +386,11 @@ section {
 }
 
 .gallery-images-grid {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-lg); */
-
-  height: fit-content;
-  columns: 300px;
+  columns: 250px; 
 }
 
 .gallery-image {
   width: 100%;
-  /* height: 200px; */
   object-fit: cover;
   border-radius: var(--radius);
   cursor: pointer;
@@ -418,7 +419,6 @@ section {
 }
 
 .modal-content {
-  position: relative;
   max-width: 90vw;
   max-height: 90vh;
   display: flex;
@@ -427,9 +427,9 @@ section {
 }
 
 .modal-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
   font-size: var(--fs-2xl);
   color: var(--color-primary-text);
   cursor: pointer;
@@ -514,16 +514,6 @@ section {
     width: 60%;
   }
 
-
-  /* gpt Gallery responsive styles */
-  /* .gallery-images-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-
-  .gallery-image {
-    height: 250px;
-  } */
-
   .gallery-tabs {
     justify-content: center;
   }
@@ -535,25 +525,12 @@ section {
 
 /* xl */
 @media (min-width: 1280px) {
-  /* gpt */
-  /* .gallery-images-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ .section-image {
+    width: 40%;
   }
-
-  .gallery-image {
-    height: 300px;
-  }
-  */
 }
 
 /* 2xl */
 @media (min-width: 1536px) {
-  /* gpt */
-  /* .gallery-images-grid {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  }
 
-  .gallery-image {
-    height: 350px;
-  } */
 }
