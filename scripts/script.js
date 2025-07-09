@@ -12,6 +12,10 @@ const wholeContainer = document.querySelector('.whole-container');
 // Vanta
 let vantaEffect;
 
+// Modal variables
+let currentModalImages = [];
+let currentModalIndex = 0;
+
 // openMobile Nav
 function openMobileNav() {
   mobileNav.classList.toggle('active');
@@ -59,11 +63,87 @@ function toggleTheme() {
   initVanta();
 }
 
+// Modal functions
+function openImageModal(imageSrc, images) {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  
+  currentModalImages = images;
+  currentModalIndex = images.indexOf(imageSrc);
+  
+  modalImage.src = imageSrc;
+  modal.style.display = 'flex';
+  document.body.classList.add('no-scroll');
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = 'none';
+  document.body.classList.remove('no-scroll');
+}
+
+function navigateModal(direction) {
+  if (currentModalImages.length === 0) return;
+  
+  currentModalIndex += direction;
+  
+  if (currentModalIndex < 0) {
+    currentModalIndex = currentModalImages.length - 1;
+  } else if (currentModalIndex >= currentModalImages.length) {
+    currentModalIndex = 0;
+  }
+  
+  const modalImage = document.getElementById('modalImage');
+  modalImage.src = currentModalImages[currentModalIndex];
+}
+
+function initializeImageModal() {
+  const modal = document.getElementById('imageModal');
+  const closeBtn = document.querySelector('.modal-close');
+  const prevBtn = document.querySelector('.modal-prev');
+  const nextBtn = document.querySelector('.modal-next');
+  
+  // Close modal events
+  closeBtn.addEventListener('click', closeImageModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeImageModal();
+  });
+  
+  // Navigation events
+  prevBtn.addEventListener('click', () => navigateModal(-1));
+  nextBtn.addEventListener('click', () => navigateModal(1));
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display === 'flex') {
+      if (e.key === 'Escape') closeImageModal();
+      if (e.key === 'ArrowLeft') navigateModal(-1);
+      if (e.key === 'ArrowRight') navigateModal(1);
+    }
+  });
+}
+
+function initializeProjectImages() {
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  projectCards.forEach(card => {
+    const images = card.querySelectorAll('.project-images, .project-thumbnail');
+    const imageUrls = Array.from(images).map(img => img.src);
+    
+    images.forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openImageModal(img.src, imageUrls));
+    });
+  });
+}
+
 // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
 
   applyTheme();
   initVanta();
+  initializeImageModal();
+  initializeProjectImages();
 
   navBlur.addEventListener('click', () => {
     mobileNav.classList.remove('active');
